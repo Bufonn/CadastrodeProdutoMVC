@@ -1,0 +1,34 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Estrutura mínima para a tabela e os formulários ficarem legíveis.
+   O visual definitivo entra na Fase 5. */
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+/* O formulário de excluir fica ao lado do link Editar, dentro da célula. */
+td form {
+  display: inline;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+input {
+  padding: 4px;
+}

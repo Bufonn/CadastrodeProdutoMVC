@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produtos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Produtos</h1>
+
+    <p><a href="/produtos/novo">Novo produto</a></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% produtos.forEach(function(produto) { %>
+          <tr>
+            <td><%= produto.nome %></td>
+            <td><%= produto.preco %></td>
+            <td><%= produto.quantidade %></td>
+            <td>
+              <a href="/produtos/<%= produto.id %>/editar">Editar</a>
+              <form action="/produtos/<%= produto.id %>/deletar" method="POST">
+                <button type="submit">Excluir</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
