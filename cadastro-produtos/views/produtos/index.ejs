@@ -9,7 +9,19 @@
   <body>
     <h1>Produtos</h1>
 
-    <p><a href="/produtos/novo">Novo produto</a></p>
+    <p>
+      <a href="/produtos/novo">Novo produto</a>
+      &middot;
+      <a href="/categorias">Categorias</a>
+    </p>
+
+    <p>
+      <form action="/produtos" method="GET">
+        <label for="busca">Buscar por nome</label>
+        <input type="text" id="busca" name="busca" value="<%= busca %>">
+        <button type="submit">Buscar</button>
+      </form>
+    </p>
 
     <table>
       <thead>
@@ -17,6 +29,7 @@
           <th>Nome</th>
           <th>Preço</th>
           <th>Quantidade</th>
+          <th>Categoria</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -26,6 +39,13 @@
             <td><%= produto.nome %></td>
             <td><%= produto.preco %></td>
             <td><%= produto.quantidade %></td>
+            <td>
+              <% if (produto.Categoria) { %>
+                <a href="/produtos/categoria/<%= produto.Categoria.id %>"><%= produto.Categoria.nome %></a>
+              <% } else { %>
+                sem categoria
+              <% } %>
+            </td>
             <td>
               <a href="/produtos/<%= produto.id %>/editar">Editar</a>
               <form action="/produtos/<%= produto.id %>/deletar" method="POST">

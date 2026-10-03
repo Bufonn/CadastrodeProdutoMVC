@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Categorias</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Categorias</h1>
+
+    <p>
+      <a href="/categorias/nova">Nova categoria</a>
+      &middot;
+      <a href="/produtos">Produtos</a>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% categorias.forEach(function(categoria) { %>
+          <tr>
+            <td>
+              <a href="/produtos/categoria/<%= categoria.id %>"><%= categoria.nome %></a>
+            </td>
+            <td>
+              <a href="/produtos?categoria=<%= categoria.id %>">Ver produtos</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

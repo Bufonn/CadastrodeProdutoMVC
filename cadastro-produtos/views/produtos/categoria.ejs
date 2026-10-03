@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produtos da categoria</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Produtos da categoria</h1>
+
+    <p>
+      <a href="/produtos">Todos os produtos</a>
+      &middot;
+      <a href="/categorias">Categorias</a>
+    </p>
+
+    <p>Escolha a categoria:</p>
+    <ul>
+      <% categorias.forEach(function(categoria) { %>
+        <li>
+          <a href="/produtos/categoria/<%= categoria.id %>"><%= categoria.nome %></a>
+        </li>
+      <% }) %>
+    </ul>
+
+    <h2><%= escolhida.nome %></h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% produtos.forEach(function(produto) { %>
+          <tr>
+            <td><%= produto.nome %></td>
+            <td><%= produto.preco %></td>
+            <td><%= produto.quantidade %></td>
+            <td>
+              <a href="/produtos/<%= produto.id %>/editar">Editar</a>
+              <form action="/produtos/<%= produto.id %>/deletar" method="POST">
+                <button type="submit">Excluir</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

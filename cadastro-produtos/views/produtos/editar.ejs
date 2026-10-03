@@ -9,6 +9,8 @@
   <body>
     <h1>Editar produto</h1>
 
+    <p><a href="/produtos">Cancelar</a></p>
+
     <form action="/produtos/<%= produto.id %>" method="POST">
       <p>
         <label for="nome">Nome</label>
@@ -26,8 +28,17 @@
       </p>
 
       <p>
+        <label for="categoriaId">Categoria</label>
+        <select id="categoriaId" name="categoriaId">
+          <option value="">Sem categoria</option>
+          <% categorias.forEach(function(categoria) { %>
+            <option value="<%= categoria.id %>" <%= produto.categoriaId == categoria.id ? 'selected' : '' %>><%= categoria.nome %></option>
+          <% }) %>
+        </select>
+      </p>
+
+      <p>
         <button type="submit">Atualizar</button>
-        <a href="/produtos">Cancelar</a>
       </p>
     </form>
   </body>
