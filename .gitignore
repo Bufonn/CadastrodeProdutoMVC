@@ -1,0 +1,22 @@
+# Dependências instaladas pelo npm
+node_modules/
+
+# Variáveis de ambiente (segredos, porta, NODE_ENV)
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+logs/
+*.log
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Observação: database.sqlite NÃO está ignorado de propósito.
+# Decisão do Matheus em 2026-10-02 (log 005): o banco vai versionado,
+# conforme a seção 19 da atividade. Commitar só em checkpoints.
