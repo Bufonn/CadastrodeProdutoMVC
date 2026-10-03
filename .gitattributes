@@ -1,0 +1,18 @@
+# Padroniza quebras de linha em LF em todo o repositório.
+# O Windows usa CRLF por padrão; o GitHub e o Linux usam LF.
+# Sem isso, o mesmo arquivo pode ficar diferente dependendo da máquina,
+# e o Git passa a avisar "LF will be replaced by CRLF".
+* text=auto eol=lf
+
+# Arquivos que NÃO são texto: não converter.
+*.sqlite binary
+*.db binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
